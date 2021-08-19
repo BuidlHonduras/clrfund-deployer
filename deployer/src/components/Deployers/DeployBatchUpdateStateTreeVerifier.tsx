@@ -20,7 +20,7 @@ export const DeployBatchUpdateStateTreeVerifierForm = (props: any) => {
       const ok = await validator.checkArgs();
       if (!ok) throw Error("Failed smartcontract requirements");
       const BustVerifierContract = await handleDeployBatchUpdateStateTreeVerifier.deploy();
-      setTxLink("https://blockscout.com/xdai/mainnet/address/" + BustVerifierContract.address + "/transactions");
+      setTxLink("https://rinkeby-explorer.arbitrum.io/address/" + BustVerifierContract.address + "/");
       setTxLoading(false);
     } catch (e) {
       console.log(e);

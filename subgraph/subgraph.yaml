@@ -6,11 +6,9 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: FundingRoundFactory
-    network: xdai
+    network: arbitrum-rinkeby
     source:
-      address: "0x549F91A93c94358C5f5380D7ABF23E1340CfF2db"
       abi: FundingRoundFactory
-      startBlock: 15000200
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -46,7 +44,7 @@ dataSources:
 templates:
   - name: FundingRound
     kind: ethereum/contract
-    network: xdai
+    network: arbitrum-rinkeby
     source:
       abi: FundingRound
     mapping:
@@ -79,7 +77,7 @@ templates:
       file: ./src/FundingRoundMapping.ts
   - name: OptimisticRecipientRegistry
     kind: ethereum/contract
-    network: xdai
+    network: arbitrum-rinkeby
     source:
       abi: OptimisticRecipientRegistry
     mapping:
@@ -102,7 +100,7 @@ templates:
       file: ./src/OptimisticRecipientRegistryMapping.ts
   - name: BrightIdUserRegistry
     kind: ethereum/contract
-    network: xdai
+    network: arbitrum-rinkeby
     source:
       abi: BrightIdUserRegistry
     mapping:

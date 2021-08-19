@@ -46,7 +46,7 @@ export const DeployMACIFactoryForm = (props: any) => {
         data._signUpDuration,
         data._votingDuration
       );
-      setTxLink("https://blockscout.com/xdai/mainnet/address/" + MACIFactoryContract.address + "/transactions");
+      setTxLink("https://rinkeby-explorer.arbitrum.io/address/" + MACIFactoryContract.address + "/");
       setTxLoading(false);
       const params = new URLSearchParams();
       if (MACIFactoryContract.address) {

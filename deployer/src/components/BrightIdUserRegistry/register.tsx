@@ -38,7 +38,7 @@ export const RegisterForm = (props: any) => {
       if (!ok) throw Error("Failed smartcontract requirements");
 
       const tx = await handleRegister.send(data._context, data._addrs, data._timestamp, data._v, data._r, data._s);
-      setTxLink("https://blockscout.com/xdai/mainnet/tx/" + tx.hash);
+      setTxLink("https://rinkeby-explorer.arbitrum.io/tx/" + tx.hash);
 
       const { receipt, error: getReceiptError } = await getReceipt.waitTwoBlocks(tx.hash);
       if (getReceiptError) throw getReceiptError;

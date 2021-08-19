@@ -38,7 +38,7 @@ export const AddFundingSourceForm = (props: any) => {
       if (!ok) throw Error("Failed smartcontract requirements");
 
       const tx = await handleAddFundingSource.send(data._source);
-      setTxLink("https://blockscout.com/xdai/mainnet/tx/" + tx.hash);
+      setTxLink("https://rinkeby-explorer.arbitrum.io/tx/" + tx.hash);
 
       const { receipt, error: getReceiptError } = await getReceipt.waitTwoBlocks(tx.hash);
       if (getReceiptError) throw getReceiptError;
