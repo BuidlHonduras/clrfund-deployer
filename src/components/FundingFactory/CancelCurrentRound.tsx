@@ -37,7 +37,7 @@ export const CancelCurrentRoundForm = (props: any) => {
       if (!ok) throw Error("Failed smartcontract requirements");
 
       const tx = await handleCancelCurrentRound.send();
-      setTxLink("https://blockscout.com/xdai/mainnet/tx/" + tx.hash);
+      setTxLink("https://rinkeby.etherscan.io/tx/" + tx.hash);
 
       const { receipt, error: getReceiptError } = await getReceipt.waitTwoBlocks(tx.hash);
       if (getReceiptError) throw getReceiptError;

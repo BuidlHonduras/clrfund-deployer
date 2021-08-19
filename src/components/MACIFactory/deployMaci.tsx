@@ -48,7 +48,7 @@ export const DeployMaciForm = (props: any) => {
         data._coordinator,
         data._coordinatorPubKey
       );
-      setTxLink("https://blockscout.com/xdai/mainnet/tx/" + tx.hash);
+      setTxLink("https://rinkeby.etherscan.io/tx/" + tx.hash);
 
       const { receipt, error: getReceiptError } = await getReceipt.waitTwoBlocks(tx.hash);
       if (getReceiptError) throw getReceiptError;

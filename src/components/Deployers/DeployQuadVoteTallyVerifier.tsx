@@ -21,7 +21,7 @@ export const DeployQuadVoteTallyVerifierForm = (props: any) => {
       if (!ok) throw Error("Failed smartcontract requirements");
       const QuadVoteTallyVerifierContract = await handleDeployQuadVoteTallyVerifier.deploy();
       setTxLink(
-        "https://blockscout.com/xdai/mainnet/address/" + QuadVoteTallyVerifierContract.address + "/transactions"
+        "https://rinkeby.etherscan.io/address/" + QuadVoteTallyVerifierContract.address + "/"
       );
       setTxLoading(false);
     } catch (e) {

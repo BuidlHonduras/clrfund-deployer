@@ -23,7 +23,7 @@ export const DeploySimpleRecipientRegistryForm = (props: any) => {
       if (!ok) throw Error("Failed smartcontract requirements");
       const SimpleRecipientRegistryContract = await handleDeploySimpleRecipientRegistry.deploy(data._controller);
       setTxLink(
-        "https://blockscout.com/xdai/mainnet/address/" + SimpleRecipientRegistryContract.address + "/transactions"
+        "https://rinkeby.etherscan.io/address/" + SimpleRecipientRegistryContract.address + "/"
       );
       setTxLoading(false);
       const params = new URLSearchParams();

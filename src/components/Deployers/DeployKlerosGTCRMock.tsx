@@ -25,7 +25,7 @@ export const DeployKlerosGTCRMockForm = (props: any) => {
         data._registrationMetaEvidence,
         data._clearingMetaEvidence
       );
-      setTxLink("https://blockscout.com/xdai/mainnet/address/" + KlerosGTCRMockContract.address + "/transactions");
+      setTxLink("https://rinkeby.etherscan.io/address/" + KlerosGTCRMockContract.address + "/");
       setTxLoading(false);
       const params = new URLSearchParams();
       if (KlerosGTCRMockContract.address) {

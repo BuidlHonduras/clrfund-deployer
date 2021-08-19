@@ -20,7 +20,7 @@ export const DeployPoseidonT6Form = (props: any) => {
       const ok = await validator.checkArgs();
       if (!ok) throw Error("Failed smartcontract requirements");
       const PoseidonT6Contract = await handleDeployPoseidonT6.deploy();
-      setTxLink("https://blockscout.com/xdai/mainnet/address/" + PoseidonT6Contract.address + "/transactions");
+      setTxLink("https://rinkeby.etherscan.io/address/" + PoseidonT6Contract.address + "/");
       setTxLoading(false);
     } catch (e) {
       console.log(e);

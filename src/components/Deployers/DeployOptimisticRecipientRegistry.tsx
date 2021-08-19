@@ -27,7 +27,7 @@ export const DeployOptimisticRecipientRegistryForm = (props: any) => {
         data._controller
       );
       setTxLink(
-        "https://blockscout.com/xdai/mainnet/address/" + OptimisticRecipientRegistryContract.address + "/transactions"
+        "https://rinkeby.etherscan.io/address/" + OptimisticRecipientRegistryContract.address + "/"
       );
       setTxLoading(false);
       const params = new URLSearchParams();
