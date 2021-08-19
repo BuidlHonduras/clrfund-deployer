@@ -61,13 +61,14 @@ export const useWeb3 = (networkId: number, dappId?: string, theme: string = "lig
   // NOTE: Expose magic, checks if ready to transact otherwise prompts user
   const web3Connect = async () => {
     if (onboard == null) return;
-    const ok = await onboard.walletSelect();
-    console.log("Prompt Select Wallet");
     if (library && account && chainId) {
       console.log("Web3 Set up Complete");
-      const ok = await onboard.walletCheck();
       return true;
     }
+    console.log("Prompt Select Wallet");
+    const okWallet = await onboard.walletSelect();
+    const okNetwork = await onboard.walletCheck();
+    console.log("Web3 Set up Complete");
     return false;
   };
 

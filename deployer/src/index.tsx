@@ -10,7 +10,7 @@ import { theme } from "./theme";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Web3Provider networkId={100}>
+    <Web3Provider networkId={421611}>
       <ChakraProvider theme={theme}>
         <HashRouter>
           <CSSReset />

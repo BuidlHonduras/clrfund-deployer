@@ -13,38 +13,43 @@ import { ConfigureOptimisticRecipientRegistryDapp } from "./ConfigureOptimisticR
 import { ConfigureKlerosGtcrDapp } from "./ConfigureKlerosGtcrDapp";
 import { ConfigureSimpleUserRegistryDapp } from "./ConfigureSimpleUserRegistryDapp";
 import { ConfigureBrightIdUserRegistryDapp } from "./ConfigureBrightIdUserRegistryDapp";
+import { useEffect } from "react";
 export const Configure = () => {
   const { id } = useParams();
   const { path } = useRouteMatch();
   const { library, account, web3Start, web3Connect } = useWeb3Context();
 
+  useEffect(() => {
+    const async = async () => {
+      await web3Start;
+    };
+    async();
+  }, []);
   const render = () => {
     if (library && account) {
       return (
         <ConfigureLayout>
-        <Switch>
-          <Route exact path={`${path}`}></Route>
-          <Route exact path={`${path}maci`}>
-            
+          <Switch>
+            <Route exact path={`${path}`}></Route>
+            <Route exact path={`${path}maci`}>
               <ConfigureMaciDapp />
-           
-          </Route>
-          <Route exact path={`${path}fundingfactory`}>
-            <ConfigureFundingFactoryDapp />
-          </Route>
-          <Route exact path={`${path}optimisticrecipientregistry`}>
-            <ConfigureOptimisticRecipientRegistryDapp />
-          </Route>
-          <Route exact path={`${path}klerosgtcr`}>
-            <ConfigureKlerosGtcrDapp />
-          </Route>
-          <Route exact path={`${path}simpleuserregistry`}>
-            <ConfigureSimpleUserRegistryDapp />
-          </Route>
-          <Route exact path={`${path}brightiduserregistry`}>
-            <ConfigureBrightIdUserRegistryDapp />
-          </Route>
-        </Switch>
+            </Route>
+            <Route exact path={`${path}fundingfactory`}>
+              <ConfigureFundingFactoryDapp />
+            </Route>
+            <Route exact path={`${path}optimisticrecipientregistry`}>
+              <ConfigureOptimisticRecipientRegistryDapp />
+            </Route>
+            <Route exact path={`${path}klerosgtcr`}>
+              <ConfigureKlerosGtcrDapp />
+            </Route>
+            <Route exact path={`${path}simpleuserregistry`}>
+              <ConfigureSimpleUserRegistryDapp />
+            </Route>
+            <Route exact path={`${path}brightiduserregistry`}>
+              <ConfigureBrightIdUserRegistryDapp />
+            </Route>
+          </Switch>
         </ConfigureLayout>
       );
     } else {
@@ -66,7 +71,6 @@ export const Configure = () => {
                 fontWeight="bold"
                 fontSize="md"
                 onClick={async () => {
-                  await web3Start();
                   await web3Connect();
                 }}>
                 Connect Wallet

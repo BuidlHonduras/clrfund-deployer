@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Text, Button, Flex, HStack, VStack, Image, Heading } from "@chakra-ui/react";
 import { Switch, Route, useParams, useRouteMatch } from "react-router-dom";
 
@@ -16,7 +16,17 @@ import { useWeb3Context } from "../../hooks/Web3Provider";
 export const Deploy = () => {
   const { id } = useParams();
   const { path } = useRouteMatch();
-  const { library, account, balance, chainId, web3Start, web3Connect } = useWeb3Context();
+  const { library, account, onboard, web3Start, web3Connect } = useWeb3Context();
+
+  useEffect(() => {
+    const async = async () => {
+      await web3Start();
+     
+    };
+    async();
+  }, []);
+
+
   // console.log({library, account,balance, chainId})
   const render = () => {
     if (library && account) {
@@ -73,7 +83,7 @@ export const Deploy = () => {
                 fontWeight="bold"
                 fontSize="md"
                 onClick={async () => {
-                  await web3Start();
+                  
                   await web3Connect();
                 }}>
                 Connect Wallet
