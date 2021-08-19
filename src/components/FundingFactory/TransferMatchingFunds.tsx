@@ -39,7 +39,7 @@ export const TransferMatchingFundsForm = (props: any) => {
       if (!ok) throw Error("Failed smartcontract requirements");
 
       const tx = await handleTransferMatchingFunds.send(data._totalSpent, data._totalSpentSalt);
-      setTxLink("https://rinkeby-explorer.arbitrum.io/tx/" + tx.hash);
+      setTxLink("https://blockscout.com/xdai/mainnet/tx/" + tx.hash);
 
       const { receipt, error: getReceiptError } = await getReceipt.waitTwoBlocks(tx.hash);
       if (getReceiptError) throw getReceiptError;

@@ -21,7 +21,7 @@ export const DeployFundingRoundFactoryForm = (props: any) => {
       const ok = await validator.checkArgs(data._maciFactory);
       if (!ok) throw Error("Failed smartcontract requirements");
       const FundingRoundFactoryContract = await handleDeployFundingRoundFactory.deploy(data._maciFactory);
-      setTxLink("https://rinkeby-explorer.arbitrum.io/address/" + FundingRoundFactoryContract.address + "/");
+      setTxLink("https://blockscout.com/xdai/mainnet/address/" + FundingRoundFactoryContract.address + "/transactions");
       setTxLoading(false);
       const params = new URLSearchParams();
       if (FundingRoundFactoryContract.address) {

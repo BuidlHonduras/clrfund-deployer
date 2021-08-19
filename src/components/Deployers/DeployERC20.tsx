@@ -20,7 +20,7 @@ export const DeployErc20Form = (props: any) => {
       const ok = await validator.checkArgs(data._initialSupply);
       if (!ok) throw Error("Failed smartcontract requirements");
       const erc20Contract = await handleDeployERC20.deploy(data._initialSupply);
-      setTxLink("https://rinkeby-explorer.arbitrum.io/address/" + erc20Contract.address + "/");
+      setTxLink("https://blockscout.com/xdai/mainnet/address/" + erc20Contract.address + "/transactions");
       setTxLoading(false);
     } catch (e) {
       console.log(e);

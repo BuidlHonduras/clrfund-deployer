@@ -22,7 +22,7 @@ export const DeployKlerosGTCRAdapterForm = (props: any) => {
       const ok = await validator.checkArgs(data._tcr, data._controller);
       if (!ok) throw Error("Failed smartcontract requirements");
       const KlerosGTCRAdapterContract = await handleDeployKlerosGTCRAdapter.deploy(data._tcr, data._controller);
-      setTxLink("https://rinkeby-explorer.arbitrum.io/address/" + KlerosGTCRAdapterContract.address + "/");
+      setTxLink("https://blockscout.com/xdai/mainnet/address/" + KlerosGTCRAdapterContract.address + "/transactions");
       setTxLoading(false);
       const params = new URLSearchParams();
       if (KlerosGTCRAdapterContract.address) {

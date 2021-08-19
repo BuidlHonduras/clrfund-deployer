@@ -38,7 +38,7 @@ export const SponsorForm = (props: any) => {
       if (!ok) throw Error("Failed smartcontract requirements");
 
       const tx = await handleSponsor.send(data.addr,);
-      setTxLink("https://rinkeby-explorer.arbitrum.io/tx/" + tx.hash);
+      setTxLink("https://blockscout.com/xdai/mainnet/tx/" + tx.hash);
 
       const { receipt, error: getReceiptError } = await getReceipt.waitTwoBlocks(tx.hash);
       if (getReceiptError) throw getReceiptError;

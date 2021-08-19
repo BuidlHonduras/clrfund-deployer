@@ -25,7 +25,7 @@ export const DeployKlerosGTCRMockForm = (props: any) => {
         data._registrationMetaEvidence,
         data._clearingMetaEvidence
       );
-      setTxLink("https://rinkeby-explorer.arbitrum.io/address/" + KlerosGTCRMockContract.address + "/");
+      setTxLink("https://blockscout.com/xdai/mainnet/address/" + KlerosGTCRMockContract.address + "/transactions");
       setTxLoading(false);
       const params = new URLSearchParams();
       if (KlerosGTCRMockContract.address) {

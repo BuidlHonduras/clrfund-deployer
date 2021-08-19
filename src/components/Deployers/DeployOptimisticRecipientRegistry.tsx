@@ -27,7 +27,7 @@ export const DeployOptimisticRecipientRegistryForm = (props: any) => {
         data._controller
       );
       setTxLink(
-        "https://rinkeby-explorer.arbitrum.io/address/" + OptimisticRecipientRegistryContract.address + "/"
+        "https://blockscout.com/xdai/mainnet/address/" + OptimisticRecipientRegistryContract.address + "/transactions"
       );
       setTxLoading(false);
       const params = new URLSearchParams();

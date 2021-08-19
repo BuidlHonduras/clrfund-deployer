@@ -17,7 +17,7 @@ export const initOnboard: (subscriptions: Subscriptions, networkId: number) => O
         {
           walletName: "walletConnect",
           rpc: {
-            [networkId]: "https://rinkeby.arbitrum.io/rpc",
+            [networkId]: "https://rpc.xdaichain.com/",
           },
           bridge: "https://bridge.walletconnect.org/",
         },
@@ -27,19 +27,19 @@ export const initOnboard: (subscriptions: Subscriptions, networkId: number) => O
           walletName: "trezor",
           appUrl: "http://localhost:3000/",
           email: "aaron@blocknative.com",
-          rpcUrl: "https://rinkeby.arbitrum.io/rpc",
+          rpcUrl: "https://rpc.xdaichain.com/",
         },
 
         { walletName: "authereum", disableNotifications: true },
 
         { walletName: "status" },
 
-        { walletName: "trust", rpcUrl: "https://rinkeby.arbitrum.io/rpc" },
+        { walletName: "trust", rpcUrl: "https://rpc.xdaichain.com/" },
 
         { walletName: "torus" },
         {
           walletName: "walletLink",
-          rpcUrl: "https://rinkeby.arbitrum.io/rpc",
+          rpcUrl: "https://rpc.xdaichain.com/",
           appName: "testdapp",
         },
 
