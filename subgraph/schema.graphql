@@ -100,9 +100,8 @@ type Recipient @entity {
 type ContributorRegistry @entity {
   id: ID!
   fundingRoundFactory: FundingRoundFactory!
-  context: Bytes
+  context: String
   owner: Bytes
-  verifier: Bytes
   contributors: [Contributor!] @derivedFrom(field: "contributorRegistry")
 
   createdAt: String

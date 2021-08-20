@@ -1351,20 +1351,20 @@ export class ContributorRegistry extends Entity {
     this.set("fundingRoundFactory", Value.fromString(value));
   }
 
-  get context(): Bytes | null {
+  get context(): string | null {
     let value = this.get("context");
     if (value === null || value.kind == ValueKind.NULL) {
       return null;
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set context(value: Bytes | null) {
+  set context(value: string | null) {
     if (value === null) {
       this.unset("context");
     } else {
-      this.set("context", Value.fromBytes(value as Bytes));
+      this.set("context", Value.fromString(value as string));
     }
   }
 
@@ -1382,23 +1382,6 @@ export class ContributorRegistry extends Entity {
       this.unset("owner");
     } else {
       this.set("owner", Value.fromBytes(value as Bytes));
-    }
-  }
-
-  get verifier(): Bytes | null {
-    let value = this.get("verifier");
-    if (value === null || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBytes();
-    }
-  }
-
-  set verifier(value: Bytes | null) {
-    if (value === null) {
-      this.unset("verifier");
-    } else {
-      this.set("verifier", Value.fromBytes(value as Bytes));
     }
   }
 

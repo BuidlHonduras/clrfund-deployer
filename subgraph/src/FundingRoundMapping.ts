@@ -1,5 +1,4 @@
 import { BigInt, log, store } from "@graphprotocol/graph-ts";
-import { BrightIdUserRegistry as BrightIdUserRegistryContract } from "../generated/templates/FundingRound/BrightIdUserRegistry";
 import {
   Contribution,
   ContributionWithdrawn,
@@ -55,7 +54,7 @@ export function handleContribution(event: Contribution): void {
   let contributorRegistryAddress = fundingRoundContract.userRegistry();
   let contributorRegistryId = contributorRegistryAddress.toHexString();
 
-  let brightIdUserRegistryContract = BrightIdUserRegistryContract.bind(contributorRegistryAddress);
+  // let brightIdUserRegistryContract = BrightIdUserRegistryContract.bind(contributorRegistryAddress);
 
   //DONE: Retroactively register here as there are no events emitted in registration function
   let contributorAddress = event.params._sender;
@@ -73,7 +72,7 @@ export function handleContribution(event: Contribution): void {
     contributor.contributorRegistry = contributorRegistryId;
     contributor.verified = true;
     contributor.contributorAddress = contributorAddress;
-    contributor.verifiedTimeStamp = brightIdUserRegistryContract.verifications(contributorAddress).value0.toString();
+    contributor.verifiedTimeStamp = event.block.timestamp.toString();
 
     contributor.save();
   } else {
@@ -89,7 +88,7 @@ export function handleContribution(event: Contribution): void {
     contributor.contributorRegistry = contributorRegistryId;
     contributor.verified = true;
     contributor.contributorAddress = contributorAddress;
-    contributor.verifiedTimeStamp = brightIdUserRegistryContract.verifications(contributorAddress).value0.toString();
+    contributor.verifiedTimeStamp =  event.block.timestamp.toString();
 
     contributor.save();
   }

@@ -14,12 +14,10 @@ import { MACIFactory as MACIFactoryContract } from "../generated/FundingRoundFac
 import { FundingRound as FundingRoundContract } from "../generated/FundingRoundFactory/FundingRound";
 
 import { OptimisticRecipientRegistry as RecipientRegistryContract } from "../generated/FundingRoundFactory/OptimisticRecipientRegistry";
-import { BrightIdUserRegistry as UserRegistryContract } from "../generated/FundingRoundFactory/BrightIdUserRegistry";
 
 import {
   FundingRound as FundingRoundTemplate,
   OptimisticRecipientRegistry as recipientRegistryTemplate,
-  BrightIdUserRegistry as contributorRegistryTemplate,
 } from "../generated/templates";
 import { FundingRoundFactory, FundingRound, RecipientRegistry, ContributorRegistry } from "../generated/schema";
 
@@ -135,17 +133,16 @@ export function handleRoundStarted(event: RoundStarted): void {
 
   if (contributorRegistry == null) {
     log.info("New contributorRegistry", []);
-    contributorRegistryTemplate.create(contributorRegistryAddress);
+    // contributorRegistryTemplate.create(contributorRegistryAddress);
 
-    let contributorRegistryContract = UserRegistryContract.bind(contributorRegistryAddress);
+    // let contributorRegistryContract = UserRegistryContract.bind(contributorRegistryAddress);
 
-    let context = contributorRegistryContract.context();
-    let owner = contributorRegistryContract.owner();
-    let verifier = contributorRegistryContract.verifier();
+    let context = "simple user registry";
+    let owner = event.address;
+    
     let contributorRegistry = new ContributorRegistry(contributorRegistryId);
     contributorRegistry.context = context;
     contributorRegistry.owner = owner;
-    contributorRegistry.verifier = verifier;
     contributorRegistry.fundingRoundFactory = fundingRoundFactoryId;
     contributorRegistry.save();
   }
